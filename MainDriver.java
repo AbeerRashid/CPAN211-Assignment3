@@ -15,7 +15,7 @@ public class MainDriver {
         List<SalesRecord> salesRecords = new ArrayList<>();
         int totalRecords = 0;
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("Sales.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("C:/HumberRegistrationSystem/CPAN211-Assignment3/Sales.txt"))) {
             String line;
 
             while ((line = reader.readLine()) != null) {
@@ -25,7 +25,7 @@ public class MainDriver {
 
                 String[] data = line.split(",");
 
-                if (data.length != 5) {
+                if (data.length != 6) {
                     continue;
                 }
 
@@ -34,7 +34,7 @@ public class MainDriver {
                     String customerName = data[1].trim();
                     String productID = data[2].trim();
                     String productName = data[3].trim();
-                    int quantity = Integer.parseInt(data[4].trim());
+                    int quantity = Integer.parseInt(data[5].trim());
 
                     if (customerID.isEmpty() || customerName.isEmpty() || productID.isEmpty() || productName.isEmpty() || quantity <= 0) {
                         continue;
@@ -44,7 +44,6 @@ public class MainDriver {
                     salesRecords.add(record);
                     totalRecords++;
 
-                    // Print each record to the console
                     System.out.println(record);
 
                 } catch (NumberFormatException ex) {
